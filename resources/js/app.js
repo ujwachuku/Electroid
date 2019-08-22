@@ -19,7 +19,12 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('form-input', require('./components/FormInputComponent.vue').default);
+Vue.component('form-submit', require('./components/FormSubmitComponent.vue').default);
+Vue.component('form-cancel', require('./components/FormCancelComponent.vue').default);
+Vue.component('form-delete', require('./components/FormDeleteComponent.vue').default);
+Vue.component('form-password', require('./components/FormPasswordComponent.vue').default);
+Vue.component('role-select-component', require('./components/RoleSelectComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
