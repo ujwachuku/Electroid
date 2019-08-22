@@ -25,6 +25,9 @@ Vue.component('form-cancel', require('./components/FormCancelComponent.vue').def
 Vue.component('form-delete', require('./components/FormDeleteComponent.vue').default);
 Vue.component('form-password', require('./components/FormPasswordComponent.vue').default);
 Vue.component('role-select-component', require('./components/RoleSelectComponent.vue').default);
+Vue.component('vehicle-type-select-component', require('./components/VehicleTypeSelectComponent.vue').default);
+Vue.component('vehicle-make-select-component', require('./components/VehicleMakeSelectComponent.vue').default);
+Vue.component('vehicle-model-select-component', require('./components/VehicleModelSelectComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

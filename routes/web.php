@@ -23,9 +23,19 @@ Route::resource('user', 'UserController');
 Route::get('user/{user}/delete', 'UserController@delete')->name('user.delete');
 
 Route::prefix('fleet')->name('fleet.')->group(function () {
+    // types
     Route::resource('type', 'VehicleTypeController');
     Route::get('type/{type}/delete', 'VehicleTypeController@delete')->name('type.delete');
+
+    // makes
     Route::resource('make', 'VehicleMakeController');
+    Route::get('make/{make}/delete', 'VehicleMakeController@delete')->name('make.delete');
+
+    // models
     Route::resource('model', 'VehicleModelController');
+    Route::get('model/{model}/delete', 'VehicleModelController@delete')->name('model.delete');
+
+    // vehicles
     Route::resource('vehicle', 'VehicleController');
+    Route::get('vehicle/{vehicle}/delete', 'VehicleController@delete')->name('vehicle.delete');
 });

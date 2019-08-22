@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class VehicleMake extends Model
 {
     use SoftDeletes;
+
+    public function vehicles()
+    {
+        return $this->hasManyThrough('App\Vehicle', 'App\VehicleModel', 'make_id', 'model_id');
+    }
 }

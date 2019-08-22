@@ -13,7 +13,7 @@ class StoreVehicleModelRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class StoreVehicleModelRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|unique:vehicle_models,' . $this->id,
+            'make_id' => 'required|integer'
         ];
     }
 }

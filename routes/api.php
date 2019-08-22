@@ -18,3 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('roles', 'RoleController@apiAll');
+Route::get('fleet/types', 'VehicleTypeController@apiAll');
+Route::get('fleet/makes', 'VehicleMakeController@apiAll');
+Route::get('fleet/models', 'VehicleModelController@apiAll');
