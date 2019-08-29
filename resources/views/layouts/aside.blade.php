@@ -2,6 +2,8 @@
     <nav class="list-group list-group-flush">
         <span class="mt-4 text-gray font-weight-bold px-2">Operations</span>
         <a href="{{ route('fleet.vehicle.index') }}" class="list-group-item list-group-item-action border-0">Incidents</a>
+        <a href="{{ route('service.team.index') }}" class="list-group-item list-group-item-action border-0">Teams</a>
+        <a href="{{ route('service.bay.index') }}" class="list-group-item list-group-item-action border-0">Bays</a>
 
         <span class="mt-4 text-gray font-weight-bold px-2">Fleet</span>
         <a href="{{ route('fleet.vehicle.index') }}" class="list-group-item list-group-item-action border-0">Vehicles</a>

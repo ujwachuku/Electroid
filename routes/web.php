@@ -40,6 +40,23 @@ Route::prefix('fleet')->name('fleet.')->group(function () {
     Route::get('vehicle/{vehicle}/delete', 'VehicleController@delete')->name('vehicle.delete');
 });
 
+Route::prefix('service')->name('service.')->group(function () {
+    // teams
+    Route::resource('team', 'ServiceTeamController');
+    Route::get('team/{team}/delete', 'ServiceTeamController@delete')->name('team.delete');
+
+    // bays
+    Route::resource('bay', 'ServiceBayController');
+    Route::get('bay/{bay}/delete', 'ServiceBayController@delete')->name('bay.delete');
+});
+
+Route::prefix('incident')->name('incident.')->group(function () {
+    // types
+    Route::resource('type', 'VehicleIncidentTypeController');
+    Route::get('type/{type}/delete', 'VehicleIncidentTypeController@delete')->name('type.delete');
+});
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
