@@ -50082,6 +50082,12 @@ Vue.component('vehicle-model-select-component', __webpack_require__(/*! ./compon
 var app = new Vue({
   el: '#app'
 });
+$(function () {
+  // Sidebar toggle behavior
+  $('#sidebarCollapse').on('click', function () {
+    $('#sidebar, #content').toggleClass('active');
+  });
+});
 
 /***/ }),
 

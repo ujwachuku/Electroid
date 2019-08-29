@@ -3,8 +3,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Viewing Vehicle Type</div>
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <div class="mt-2 h4">Viewing Vehicle Type</div>
+                    </div>
                     <div class="card-body">
                         <dl class="row">
                             <dt class="col-md-4 text-right">Name:</dt><dd class="col-md-8">{{ $type->name }}</dd>

@@ -24,15 +24,13 @@ class CreateVehiclesTable extends Migration
             $table->date('operating_license_issue_date')->nullable();
             $table->date('operating_license_expiry_date')->nullable();
             $table->unsignedInteger('type_id');
-            $table->unsignedInteger('make_id');
             $table->unsignedInteger('model_id');
-            $table->unsignedInteger('user_id');
+            //$table->unsignedInteger('user_id');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('type_id')->references('id')->on('vehicle_types');
-            $table->foreign('make_id')->references('id')->on('vehicle_makes');
             $table->foreign('model_id')->references('id')->on('vehicle_models');
-            $table->foreign('user_id')->references('id')->on('users');
+            //$table->foreign('user_id')->references('id')->on('users');
         });
     }
 

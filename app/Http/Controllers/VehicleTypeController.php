@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreVehicleTypeRequest;
 use App\Repositories\VehicleTypeRepository;
 use App\VehicleType;
-use Illuminate\Http\Request;
 
 class VehicleTypeController extends Controller
 {
@@ -14,6 +13,11 @@ class VehicleTypeController extends Controller
     public function __construct()
     {
         $this->repository = new VehicleTypeRepository();
+    }
+
+    public function apiAll()
+    {
+        return VehicleType::orderBy('name')->get();
     }
 
     public function index()

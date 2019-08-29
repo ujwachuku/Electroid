@@ -15,9 +15,9 @@ class BaseRepository
         return $this->model->orderBy($this->order_by_field, $this->order_by_direction)->get();
     }
 
-    public function paginate()
+    public function paginate($count = 10)
     {
-        return $this->model->orderBy($this->order_by_field, $this->order_by_direction)->paginate();
+        return $this->model->orderBy($this->order_by_field, $this->order_by_direction)->paginate($count);
     }
 
     public function delete($model)

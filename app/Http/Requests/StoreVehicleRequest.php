@@ -13,7 +13,7 @@ class StoreVehicleRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class StoreVehicleRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'type_id' => 'required|integer',
+            'model_id' => 'required|integer',
+            'fleet_nr' => 'required|min:3|max:10|unique:vehicles,' .$this->id,
+            'reg_nr' => 'required|min:3|max:10|unique:vehicles,' .$this->id,
+            'engine_nr' => 'required|min:5|max:50',
+            'vin_nr' => 'required|min:5|max:50',
+            'operating_license_nr' => 'required|min:5|max:50',
+            'model_year' => 'sometimes',
+            'operating_license_issue_date' => 'sometimes',
+            'operating_license_expiry_date' => 'sometimes',
         ];
     }
 }

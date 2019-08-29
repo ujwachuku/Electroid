@@ -39,3 +39,11 @@ Route::prefix('fleet')->name('fleet.')->group(function () {
     Route::resource('vehicle', 'VehicleController');
     Route::get('vehicle/{vehicle}/delete', 'VehicleController@delete')->name('vehicle.delete');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

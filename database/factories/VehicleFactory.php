@@ -14,9 +14,10 @@ $factory->define(\App\Vehicle::class, function (Faker $faker) {
         'model_year' => $faker->year,
         'operating_license_nr' => $faker->randomNumber(8),
         'operating_license_issue_date' => $faker->date(),
-        'make_id' => \App\VehicleMake::all()->random()->id,
+        'operating_license_expiry_date' => $faker->date(),
+        //'make_id' => \App\VehicleMake::all()->random()->id,
         'type_id' => \App\VehicleType::all()->random()->id,
         'model_id' => \App\VehicleModel::all()->random()->id,
-        'user_id' => \App\User::all()->random()->id,
+        //'user_id' => \App\User::all()->random()->id,
     ];
 });

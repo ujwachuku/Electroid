@@ -28,6 +28,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role');
     }
 
+    public function role()
+    {
+        return $this->roles()->first();
+    }
+
     public function isAdmin()
     {
         return $this->roles()->where('role_id', 1)->count() > 0;

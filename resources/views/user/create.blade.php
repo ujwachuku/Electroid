@@ -3,8 +3,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Create User</div>
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <div class="mt-2 h4">Create User</div>
+                    </div>
                     <form action="{{ route('user.store') }}" method="post">
                         <div class="card-body">
                             @include('user.form')

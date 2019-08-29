@@ -3,8 +3,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Create Vehicle Type</div>
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <div class="mt-2 h4">Create Vehicle Type</div>
+                    </div>
                     <form action="{{ route('fleet.type.store') }}" method="post">
                         <div class="card-body">
                             @include('fleet.type.form')
