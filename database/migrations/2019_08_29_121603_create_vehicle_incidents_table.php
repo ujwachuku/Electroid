@@ -23,10 +23,12 @@ class CreateVehicleIncidentsTable extends Migration
             $table->unsignedInteger('bay_id');
             $table->unsignedInteger('pax_impact_id');
             $table->unsignedInteger('user_id');
-            $table->string('road');
+            $table->string('description');
+            $table->string('action');
             $table->string('driven_by');
             $table->string('action_by');
             $table->string('attended_by');
+            $table->string('reported_by');
             $table->dateTime('reported_at');
             $table->dateTime('action_at');
             $table->dateTime('attended_at');

@@ -6,6 +6,8 @@
 
 require('./bootstrap');
 
+require('chart.js')
+
 window.Vue = require('vue');
 
 /**
@@ -28,6 +30,11 @@ Vue.component('role-select-component', require('./components/RoleSelectComponent
 Vue.component('vehicle-type-select-component', require('./components/VehicleTypeSelectComponent.vue').default);
 Vue.component('vehicle-make-select-component', require('./components/VehicleMakeSelectComponent.vue').default);
 Vue.component('vehicle-model-select-component', require('./components/VehicleModelSelectComponent.vue').default);
+Vue.component('vehicle-select-component', require('./components/VehicleSelectComponent.vue').default);
+Vue.component('incident-type-select-component', require('./components/IncidentTypeSelectComponent.vue').default);
+Vue.component('incident-area-select-component', require('./components/IncidentAreaSelectComponent.vue').default);
+Vue.component('service-team-select-component', require('./components/ServiceTeamSelectComponent.vue').default);
+Vue.component('service-bay-select-component', require('./components/ServicebaySelectComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

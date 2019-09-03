@@ -58,4 +58,10 @@ class VehicleIncidentController extends Controller
         $this->repository->delete($incident);
         return redirect()->route('incident.index')->with('success', 'The vehicle incident was deleted successfully');
     }
+
+    public function clone(VehicleIncident $incident)
+    {
+        $clone = $this->repository->clone($incident);
+        return view('incident.create', ['incident' => $clone]);
+    }
 }

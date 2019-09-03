@@ -21,3 +21,8 @@ Route::get('roles', 'RoleController@apiAll');
 Route::get('fleet/types', 'VehicleTypeController@apiAll');
 Route::get('fleet/makes', 'VehicleMakeController@apiAll');
 Route::get('fleet/models', 'VehicleModelController@apiAll');
+Route::get('fleet/vehicles', 'VehicleController@apiAll');
+Route::get('incident/types', 'VehicleIncidentTypeController@apiAll');
+Route::get('incident/areas', 'VehicleIncidentAreaController@apiAll');
+Route::get('service/teams', 'ServiceTeamController@apiAll');
+Route::get('service/bays', 'ServiceBayController@apiAll');

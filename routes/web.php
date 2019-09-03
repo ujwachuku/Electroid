@@ -54,8 +54,15 @@ Route::prefix('incident')->name('incident.')->group(function () {
     // types
     Route::resource('type', 'VehicleIncidentTypeController');
     Route::get('type/{type}/delete', 'VehicleIncidentTypeController@delete')->name('type.delete');
+
+    // areas
+    Route::resource('area', 'VehicleIncidentAreaController');
+    Route::get('area/{area}/delete', 'VehicleIncidentAreaController@delete')->name('area.delete');
 });
 
+Route::resource('incident', 'VehicleIncidentController');
+Route::get('incident/{incident}/delete', 'VehicleIncidentController@delete')->name('incident.delete');
+Route::get('incident/{incident}/clone', 'VehicleIncidentController@clone')->name('incident.clone');
 
 Auth::routes();
 

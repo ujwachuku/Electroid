@@ -13,7 +13,7 @@ class StoreVehicleIncidentRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,22 @@ class StoreVehicleIncidentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'type_id' => 'required|integer',
+            'area_id' => 'required|integer',
+            'vehicle_id' => 'required|integer',
+            'team_id' => 'sometimes|integer',
+            'bay_id' => 'sometimes|integer',
+            'pax_impact_id' => 'sometimes|integer',
+            'description' => 'required|max:400',
+            'action' => 'sometimes|max:400',
+            'driven_by' => 'required|max:20',
+            'action_by' => 'sometimes|max:20',
+            'attended_by' => 'sometimes|max:20',
+            'reported_by' => 'sometimes|max:20',
+            'reported_at' => 'required',
+            'action_at' => 'sometimes',
+            'attended_at' => 'sometimes',
+            'service_date' => 'sometimes'
         ];
     }
 }

@@ -17,7 +17,7 @@ class VehicleController extends Controller
 
     public function apiAll()
     {
-        return Vehicle::orderBy('name')->get();
+        return Vehicle::orderBy('fleet_nr')->get();
     }
 
     public function index()
