@@ -105,17 +105,23 @@ class VehicleIncidentController extends Controller
 
         switch ($request->layout) {
             case 1:
-                $pdf = PDF::loadview('incident.pdf.detail', compact('incidents'));
+                $layout = 'detail';
+                $orientation = 'portrait';
                 break;
             case 2:
-                $pdf = PDF::loadview('incident.pdf.card', compact('incidents'));
+                $layout = 'jobcard';
+                $orientation = 'portrait';
                 break;
             default:
-                $pdf = PDF::loadview('incident.pdf.summary', compact('incidents'));
+                $layout = 'summary';
+                $orientation = 'landscape';
                 break;
         }
 
-        $pdf = PDF::loadview('incident.pdf.summary', compact('incidents'));
+        $pdf = PDF::setPaper('a4', $orientation)->loadview('incident.pdf.' . $layout, [
+            'period' => $request->period_from . ' to ' . $request->period_to,
+            'incidents' => $incidents,
+        ]);
 
         return $pdf->stream('IncidentSummaryReport.pdf');
     }

@@ -3,9 +3,9 @@
 <div class="container pt-md-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card shadow">
+            <div class="card shadow-sm">
                 <div class="card-body">
-                    <div class="text-center">
+                    <div class="text-center py-2">
                         <img src="{{ asset('img/logo.png') }}" alt="Logo" class="img-fluid">
                     </div>
                     <form method="POST" action="{{ route('login') }}" class="mt-4">

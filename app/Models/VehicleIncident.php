@@ -16,9 +16,19 @@ class VehicleIncident extends Model
         return $this->belongsTo('App\VehicleIncidentArea', 'area_id');
     }
 
+    public function team()
+    {
+        return $this->belongsTo('App\ServiceTeam', 'team_id');
+    }
+
     public function vehicle()
     {
         return $this->belongsTo('App\Vehicle', 'vehicle_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     public function isOpen()

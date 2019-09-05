@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
@@ -28,7 +28,7 @@
 </head>
 <body>
 <h1>Control Room Summary Report</h1>
-<p>Period: {{$period ?? ''}}</p>
+<p>Period: {{$period}}</p>
 <hr/>
 @if(isset($incidents))
     <table align="center" width="100%" cellspacing="0">
@@ -39,6 +39,7 @@
             <th>Type</th>
             <th>Fleet Number</th>
             <th>Area</th>
+            <th>Road</th>
             <th>Description</th>
             <th>Action By</th>
             <th>Action Taken</th>
@@ -50,20 +51,21 @@
         @foreach($incidents as $incident)
             <tr>
                 <td>{{$incident->reported_at}}</td>
-                <td>{{$incident->code}}</td>
+                <td>{{$incident->ref_nr}}</td>
                 <td>{{$incident->type->name}}</td>
-                <td>{{$incident->vehicle->fleet_nr}}</td>
+                <td>{{$incident->fleet->fleet_nr}}</td>
                 <td>{{$incident->area->name}}</td>
+                <td>{{$incident->area_road}}</td>
                 <td class="text-left">{!! strip_tags(htmlspecialchars_decode($incident->description)) !!}</td>
                 <td>{{ $incident->action_by }}</td>
-                <td class="text-left">{!! strip_tags(htmlspecialchars_decode($incident->action)) !!}</td>
-                <td>{!! ($incident->pax_impact_id === '1') ? 'Yes' : 'No' !!}</td>
+                <td class="text-left">{!! strip_tags(htmlspecialchars_decode($incident->action_performed)) !!}</td>
+                <td>{!! ($incident->pass_impact == 1) ? 'Yes' : 'No' !!}</td>
                 <td>{{$incident->user->name}}</td>
             </tr>
         @endforeach
         </tbody>
     </table>
-    <hr>
+    <hr />
     <p class="text-right">Report Date: {!! date('Y-m-d H:i:s') !!}</p>
 @endif
 </body>

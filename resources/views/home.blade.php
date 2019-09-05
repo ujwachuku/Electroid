@@ -6,7 +6,7 @@
             <div class="card text-{{ $unattendedIncidentCount > 0 ? 'white' : 'white' }} bg-{{ $unattendedIncidentCount > 0 ? 'danger' : 'success' }} shadow-sm">
                 <div class="card-body text-center">
                     <h4 class="card-title"><i class="fas fa-car-crash"></i> Incidents</h4>
-                    <p class="card-text">There is {{ $unattendedIncidentCount > 0 ? $unattendedIncidentCount : 'no' }} unattended incidents.</p>
+                    <p class="card-text">There are {{ $unattendedIncidentCount > 0 ? $unattendedIncidentCount : 'no' }} unattended incidents.</p>
                     <a href="{{ route('incident.index') }}" class="btn btn-outline-{{ $unattendedIncidentCount > 0 ? 'danger' : 'success' }} bg-white">View Incidents</a>
                 </div>
             </div>
