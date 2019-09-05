@@ -63,6 +63,18 @@
     <main class="flex-grow-1 vh-100" style="overflow: auto">
         <div class="container" style="padding-top: 65px">
             @yield('content')
+            <div class="toast">
+                <div class="toast-header">
+                    <strong class="mr-auto">Bootstrap</strong>
+                    <small>11 mins ago</small>
+                    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="toast-body">
+                    Hello, world! This is a toast message.
+                </div>
+            </div>
         </div>
     </main>
 </div>
@@ -73,7 +85,8 @@
         $('#logout-button').click(function (e) {
             e.preventDefault();
             $('#logout-form').submit();
-        })
+        });
+        $('.toast').toast();
     })
 </script>
 @stack('scripts')

@@ -22,6 +22,7 @@ class CreateVehicleIncidentsTable extends Migration
             $table->unsignedInteger('team_id');
             $table->unsignedInteger('bay_id');
             $table->unsignedInteger('pax_impact_id');
+            $table->unsignedInteger('status_id');
             $table->unsignedInteger('user_id');
             $table->string('description');
             $table->string('action');

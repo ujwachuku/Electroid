@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 
 use App\VehicleIncident;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class VehicleIncidentRepository extends BaseRepository
@@ -44,6 +45,8 @@ class VehicleIncidentRepository extends BaseRepository
         $incident->attended_at = $request->attended_at;
         $incident->service_date = $request->service_date;
 
+        $incident->status_id = 1;
+
         $incident->user_id = Auth::user()->id;
 
         return $incident->save();
@@ -54,5 +57,26 @@ class VehicleIncidentRepository extends BaseRepository
         $cloned = $incident->replicate();
         $cloned->code = null;
         return $cloned;
+    }
+
+    public function close($incident)
+    {
+        $incident->status_id = 99;
+        $incident->save();
+        return $incident;
+    }
+
+    public function reopen($incident)
+    {
+        $incident->status_id = 1;
+        $incident->save();
+        return $incident;
+    }
+
+    public function filter($request)
+    {
+        $periodFromDate = Carbon::createFromFormat('Y-m-d', $request->period_from)->format('Y/m/d');
+        $periodToDate = Carbon::createFromFormat('Y-m-d', $request->period_to)->format('Y/m/d');
+        return VehicleIncident::whereBetween('reported_at', [$periodFromDate, $periodToDate])->get();
     }
 }

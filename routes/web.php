@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes(['register' => false]);
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes(['register' => false]);
 
 Route::resource('user', 'UserController');
 Route::get('user/{user}/delete', 'UserController@delete')->name('user.delete');
@@ -58,11 +56,17 @@ Route::prefix('incident')->name('incident.')->group(function () {
     // areas
     Route::resource('area', 'VehicleIncidentAreaController');
     Route::get('area/{area}/delete', 'VehicleIncidentAreaController@delete')->name('area.delete');
+
+    // reports
+    Route::get('report', 'VehicleIncidentController@report')->name('report');
+    Route::post('report', 'VehicleIncidentController@runrpt')->name('runrpt');
 });
 
 Route::resource('incident', 'VehicleIncidentController');
 Route::get('incident/{incident}/delete', 'VehicleIncidentController@delete')->name('incident.delete');
 Route::get('incident/{incident}/clone', 'VehicleIncidentController@clone')->name('incident.clone');
+Route::get('incident/{incident}/close', 'VehicleIncidentController@close')->name('incident.close');
+Route::get('incident/{incident}/reopen', 'VehicleIncidentController@reopen')->name('incident.reopen');
 
 Auth::routes();
 

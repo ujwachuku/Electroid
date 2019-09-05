@@ -11,48 +11,49 @@
                         </div>
                     @endif
                 </div>
-                <div class="card-body">
-                    @if($incidents->count() > 0)
-                        <table class="table table-hover mb-0">
-                            <thead>
-                            <tr>
-                                <th class="text-right" width="6em">&nbsp;</th>
-                                <th>Ref. Nr.</th>
-                                <th>Vehicle</th>
-                                <th>Type</th>
-                                <th>Area</th>
-                                <th>&nbsp;</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($incidents as $incident)
-                                <tr>
-                                    <td class="text-right">
-                                        <i class="fas fa-rocket"></i>
-                                    </td>
-                                    <td class="align-middle">
-                                        <a href="{{ route('incident.show', $incident) }}">{{ $incident->code }}</a>
-                                    </td>
-                                    <td class="align-middle">{{ $incident->vehicle->fleet_nr }}</td>
-                                    <td class="align-middle">{{ $incident->type->name }}</td>
-                                    <td class="align-middle">{{ $incident->area->name }}</td>
-                                    <td class="align-middle text-right">
-                                        <a href="{{ route('incident.edit', $incident) }}">Edit</a> |
-                                        <a href="{{ route('incident.clone', $incident) }}">Clone</a> |
-                                        <a href="{{ route('incident.delete', $incident) }}">Delete</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    @else
-                        <div class="card-body text-center py-5">
-                            <p>You haven't created any vehicle incidents yet!</p>
-                            <a href="{{ route('incident.create') }}" class="btn btn-primary">Create</a>
+                @if($incidents->count() > 0)
+                    @foreach($incidents as $incident)
+                        <div class="d-flex py-1 border-bottom">
+                            <div class="col-md-1 py-2 text-center">
+                                <i class="fas fa-car-crash"></i>
+                            </div>
+                            <div class="col-md-3">
+                                <small class="text-secondary">{{ $incident->type->name }}</small>
+                                <div>
+                                    <a href="{{ route('incident.show', $incident) }}">{{ $incident->code }}</a>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <small class="text-secondary">{{ $incident->area->name }}</small>
+                                <div>{{ $incident->vehicle->fleet_nr }}</div>
+                            </div>
+                            <div class="col-md-2 py-1">
+                                @if($incident->isOpen())
+                                    <div class="p-1 alert-danger text-center">Unattended</div>
+                                @else
+                                    <div class="p-1 alert-success text-center">Attended</div>
+                                @endif
+                            </div>
+                            <div class="col-md-3 py-2 text-right">
+                                <a href="{{ route('incident.edit', $incident) }}">Edit</a> |
+                                @if($incident->isOpen())
+                                    <a href="{{ route('incident.close', $incident) }}">Close</a> |
+                                @else
+                                    <a href="{{ route('incident.reopen', $incident) }}">Open</a> |
+                                @endif
+                                <a href="{{ route('incident.delete', $incident) }}">Delete</a>
+                            </div>
                         </div>
-                    @endif
-                </div>
-
+                    @endforeach
+                @else
+                    <div class="card-body text-center py-5">
+                        <p>You haven't created any vehicle incidents yet!</p>
+                        <a href="{{ route('incident.create') }}" class="btn btn-primary">Create</a>
+                    </div>
+                @endif
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <div>{{ $incidents->links() }}</div>
             </div>
         </div>
     </div>

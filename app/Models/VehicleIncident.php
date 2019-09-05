@@ -20,4 +20,9 @@ class VehicleIncident extends Model
     {
         return $this->belongsTo('App\Vehicle', 'vehicle_id');
     }
+
+    public function isOpen()
+    {
+        return $this->status_id === '1';
+    }
 }
