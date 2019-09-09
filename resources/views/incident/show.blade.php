@@ -2,20 +2,21 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="card shadow-sm">
-                    <div class="card-header">
-                        <div class="mt-2 h4">Viewing Incident</div>
+                    <div class="card-header clearfix">
+                        <div class="float-left">
+                            <div class="mt-2 h4">Viewing Incident</div>
+                        </div>
+                        <div class="float-right">
+                            @if($incident->isOpen())
+                                <div class="py-2 font-weight-bold text-danger">Unresolved</div>
+                            @else
+                                <div class="py-2 font-weight-bold text-success">Resolved</div>
+                            @endif
+                        </div>
                     </div>
                     <div class="card-body">
-                        @if($incident->isOpen())
-                            <div class="row justify-content-end">
-                                <div class="col-md-3">
-                                    <div class="alert alert-danger text-center">Unattended</div>
-                                </div>
-                            </div>
-                            <hr>
-                        @endif
                         <div class="row">
                             <div class="col-md-6">
                                 <dl class="row">
@@ -82,7 +83,7 @@
                         @else
                             <a href="{{ route('incident.reopen', $incident) }}" class="btn btn-info">Reopen</a>
                         @endif
-                        <a href="{{ route('incident.index') }}" class="btn btn-secondary">Cancel</a>
+                        <a href="{{ route('incident.index') }}" class="btn btn-secondary">Back</a>
                     </div>
                 </div>
             </div>

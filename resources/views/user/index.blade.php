@@ -19,6 +19,7 @@
                                 <th width="6em">&nbsp;</th>
                                 <th>Name</th>
                                 <th>Email</th>
+                                <th>Role</th>
                                 <th>&nbsp;</th>
                             </tr>
                             </thead>
@@ -32,6 +33,7 @@
                                         <a href="{{ route('user.show', $user) }}">{{ $user->name }}</a>
                                     </td>
                                     <td class="align-middle">{{ $user->email }}</td>
+                                    <td class="align-middle">{{ $user->role()->name }}</td>
                                     <td class="align-middle text-right">
                                         <a href="{{ route('user.edit', $user) }}">Edit</a> |
                                         <a href="{{ route('user.delete', $user) }}">Delete</a>

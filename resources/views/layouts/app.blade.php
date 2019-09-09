@@ -79,6 +79,8 @@
     </main>
 </div>
 <!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js" type="text/javascript"></script>
 <script src="{{ asset('js/app.js') }}"></script>
 <script>
     $(document).ready(function () {
@@ -87,6 +89,8 @@
             $('#logout-form').submit();
         });
         $('.toast').toast();
+        $('.datetime-picker').datetimepicker();
+        $('.form-control-chosen').chosen();
     })
 </script>
 @stack('scripts')

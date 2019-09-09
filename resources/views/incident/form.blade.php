@@ -17,9 +17,14 @@
         </incident-type-select-component>
     </div>
     <div class="col-md-6">
-        <incident-area-select-component
-            value="{{ old('area_id', $incident->area_id ? $incident->area_id : '') }}">
-        </incident-area-select-component>
+        <div class="form-group">
+            <label for="area_id">Area</label>
+            <select name="area_id" id="area_id" class="form-control form-control-chosen">
+                @foreach($areas as $id => $name)
+                    <option value="{{ $id }}" @if(($id === $incident->area_id) ? 'selected' : '') @endif>{{ $name }}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
 </div>
 
@@ -35,9 +40,14 @@
         </div>
     </div>
     <div class="col-md-6">
-        <vehicle-select-component
-            value="{{ old('vehicle_id', $incident->vehicle ? $incident->vehicle->id : '') }}">
-        </vehicle-select-component>
+        <div class="form-group">
+            <label for="vehicle_id">Vehicle</label>
+            <select name="vehicle_id" id="vehicle_id" class="form-control form-control-chosen">
+                @foreach($vehicles as $id => $fleet_nr)
+                    <option value="{{ $id }}" @if(($id === $incident->vehicle_id) ? 'selected' : '') @endif>{{ $fleet_nr }}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
 </div>
 <div class="row">
@@ -71,7 +81,7 @@
         <div class="form-group">
             <label for="reported_at">Reported At</label>
             <input type="text" name="reported_at" id="reported_at" value="{{ old('reported_at', $incident->reported_at) }}"
-                   class="form-control" placeholder="Date and Time">
+                   class="form-control datetime-picker" placeholder="Date and Time">
             @error('reported_at')
             <div class="text-danger">*{{ $message }}</div>
             @enderror
@@ -110,7 +120,7 @@
         <div class="form-group">
             <label for="attended_at">Attended At</label>
             <input type="text" name="attended_at" id="attended_at" value="{{ old('attended_at', $incident->attended_at) }}"
-                   class="form-control" placeholder="Date and Time">
+                   class="form-control datetime-picker" placeholder="Date and Time">
             @error('attended_at')
             <div class="text-danger">*{{ $message }}</div>
             @enderror
@@ -133,7 +143,7 @@
         <div class="form-group">
             <label for="action_at">Action At</label>
             <input type="text" name="action_at" id="action_at" value="{{ old('action_at', $incident->action_at) }}"
-                   class="form-control" placeholder="Date and Time">
+                   class="form-control datetime-picker" placeholder="Date and Time">
             @error('action_at')
             <div class="text-danger">*{{ $message }}</div>
             @enderror
@@ -162,7 +172,7 @@
         <div class="form-group">
             <label for="service_date">Vehicle's Last Service</label>
             <input type="text" name="service_date" id="service_date" value="{{ old('service_date', $incident->service_date) }}"
-                   class="form-control" placeholder="Date">
+                   class="form-control datetime-picker" placeholder="Date">
             @error('service_date')
             <div class="text-danger">*{{ $message }}</div>
             @enderror

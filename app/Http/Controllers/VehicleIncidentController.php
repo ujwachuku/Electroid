@@ -35,7 +35,13 @@ class VehicleIncidentController extends Controller
 
     public function create(VehicleIncident $incident)
     {
-        return view('incident.create', compact('incident'));
+        $data = [
+            'incident' => $incident,
+            'areas' => VehicleIncidentArea::orderBy('name')->pluck('name', 'id'),
+            'vehicles' => Vehicle::orderBy('fleet_nr')->pluck('fleet_nr', 'id')
+        ];
+
+        return view('incident.create', $data);
     }
 
     public function store(StoreVehicleIncidentRequest $request, VehicleIncident $incident)
@@ -57,6 +63,8 @@ class VehicleIncidentController extends Controller
     public function update(StoreVehicleIncidentRequest $request, VehicleIncident $incident)
     {
         $this->repository->store($request, $incident);
+        if($request->close === '1')
+            $this->repository->close($incident);
         return redirect()->route('incident.show', $incident)->with('success', 'The vehicle incident was updated');
     }
 
@@ -74,7 +82,7 @@ class VehicleIncidentController extends Controller
 
     public function close(VehicleIncident $incident)
     {
-        $clone = $this->repository->close($incident);
+        $this->repository->close($incident);
         return redirect()->route('incident.index')->with('success', 'The vehicle incident was closed');
     }
 

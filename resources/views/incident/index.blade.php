@@ -29,9 +29,9 @@
                             </div>
                             <div class="col-md-2 py-1">
                                 @if($incident->isOpen())
-                                    <div class="p-1 alert-danger text-center">Unattended</div>
+                                    <div class="p-2 font-weight-bold text-danger text-center">Open</div>
                                 @else
-                                    <div class="p-1 alert-success text-center">Attended</div>
+                                    <div class="p-2 text-success text-center">Closed</div>
                                 @endif
                             </div>
                             <div class="col-md-3 py-2 text-right">
