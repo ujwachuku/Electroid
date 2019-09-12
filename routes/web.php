@@ -18,13 +18,16 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/home', 'HomeController@index')->name('home');
 
+    // roles
     Route::prefix('user')->name('user.')->group(function(){
         Route::resource('role', 'RoleController');
         Route::get('role/{role}/delete', 'RoleController@delete')->name('role.delete');
     });
 
+    // users
     Route::resource('user', 'UserController');
     Route::get('user/{user}/delete', 'UserController@delete')->name('user.delete');
+    Route::get('user/{user}/reset', 'UserController@reset')->name('user.reset');
 
     Route::prefix('fleet')->name('fleet.')->group(function () {
         // types

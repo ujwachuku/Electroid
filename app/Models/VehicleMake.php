@@ -9,6 +9,8 @@ class VehicleMake extends Model
 {
     use SoftDeletes;
 
+    protected $fillable = ['name'];
+
     public function vehicles()
     {
         return $this->hasManyThrough('App\Vehicle', 'App\VehicleModel', 'make_id', 'model_id');

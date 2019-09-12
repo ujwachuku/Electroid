@@ -75,14 +75,17 @@
                         </div>
                     </div>
                     <div class="card-footer text-center">
+                        @if($incident->isOpen())
                         <a href="{{ route('incident.edit', $incident) }}" class="btn btn-primary">Edit</a>
-                        <form-delete href="{{ route('incident.delete', $incident) }}"></form-delete>
+                        @endif
+
                         <a href="{{ route('incident.clone', $incident) }}" class="btn btn-warning">Clone</a>
-                        @if($incident->status_id === '1')
+                        @if($incident->isOpen())
                             <a href="{{ route('incident.close', $incident) }}" class="btn btn-success">Close</a>
                         @else
-                            <a href="{{ route('incident.reopen', $incident) }}" class="btn btn-info">Reopen</a>
+                            <a href="{{ route('incident.reopen', $incident) }}" class="btn btn-info">Re-Open</a>
                         @endif
+                        <form-delete href="{{ route('incident.delete', $incident) }}"></form-delete>
                         <a href="{{ route('incident.index') }}" class="btn btn-secondary">Back</a>
                     </div>
                 </div>

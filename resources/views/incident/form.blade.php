@@ -80,11 +80,13 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="reported_at">Reported At</label>
-            <input type="text" name="reported_at" id="reported_at" value="{{ old('reported_at', $incident->reported_at) }}"
-                   class="form-control datetime-picker" placeholder="Date and Time">
-            @error('reported_at')
-            <div class="text-danger">*{{ $message }}</div>
-            @enderror
+            <div class="input-group date tempus-dominus-datepicker" id="grp-reported-at" data-target-input="nearest">
+                <input type="text" name="reported_at" class="form-control datetimepicker-input" data-target="#grp-reported-at" value="{{ old('reported_at', $incident->reported_at) }}"/>
+                <div class="input-group-append" data-target="#grp-reported-at" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+            @error('reported_at')<div class="text-danger">{{ $message }}</div>@enderror
         </div>
     </div>
 </div>
@@ -119,11 +121,13 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="attended_at">Attended At</label>
-            <input type="text" name="attended_at" id="attended_at" value="{{ old('attended_at', $incident->attended_at) }}"
-                   class="form-control datetime-picker" placeholder="Date and Time">
-            @error('attended_at')
-            <div class="text-danger">*{{ $message }}</div>
-            @enderror
+            <div class="input-group date tempus-dominus-datepicker" id="grp-attended-at" data-target-input="nearest">
+                <input type="text" name="attended_at" class="form-control datetimepicker-input" data-target="#datetimepicker1" value="{{ old('attended_at', $incident->attended_at) }}"/>
+                <div class="input-group-append" data-target="#grp-attended-at" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+            @error('attended_at')<div class="text-danger">{{ $message }}</div>@enderror
         </div>
     </div>
 </div>
@@ -142,11 +146,13 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="action_at">Action At</label>
-            <input type="text" name="action_at" id="action_at" value="{{ old('action_at', $incident->action_at) }}"
-                   class="form-control datetime-picker" placeholder="Date and Time">
-            @error('action_at')
-            <div class="text-danger">*{{ $message }}</div>
-            @enderror
+            <div class="input-group date tempus-dominus-datepicker" id="grp-action-at" data-target-input="nearest">
+                <input type="text" name="action_at" class="form-control datetimepicker-input" data-target="#datetimepicker1" value="{{ old('action_at', $incident->action_at) }}"/>
+                <div class="input-group-append" data-target="#grp-action-at" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+            @error('action_at')<div class="text-danger">{{ $message }}</div>@enderror
         </div>
     </div>
 </div>
@@ -170,12 +176,14 @@
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
-            <label for="service_date">Vehicle's Last Service</label>
-            <input type="text" name="service_date" id="service_date" value="{{ old('service_date', $incident->service_date) }}"
-                   class="form-control datetime-picker" placeholder="Date">
-            @error('service_date')
-            <div class="text-danger">*{{ $message }}</div>
-            @enderror
+            <label for="service_date">Vehicle Last Service</label>
+            <div class="input-group date tempus-dominus-datepicker" id="grp-service-date" data-target-input="nearest">
+                <input type="text" name="service_date" class="form-control datetimepicker-input" data-target="#datetimepicker1" value="{{ old('service_date', $incident->service_date) }}"/>
+                <div class="input-group-append" data-target="#grp-service-date" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+            @error('service_date')<div class="text-danger">{{ $message }}</div>@enderror
         </div>
     </div>
     <div class="col-md-4">

@@ -21,6 +21,6 @@ class UsersTableSeeder extends Seeder
 
         $user->roles()->attach(1);
 
-        factory(User::class, 10)->create();
+        //factory(User::class, 10)->create();
     }
 }

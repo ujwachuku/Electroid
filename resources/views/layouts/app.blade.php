@@ -16,6 +16,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
     <style>
         .bg-imperial-primer {
             background-color: #222f3e;
@@ -54,6 +55,10 @@
         .card-body>table tbody td {
             border-top: 1px solid #ededed;
         }
+
+        .datepicker table td, .datepicker table th {
+            border-top: none;
+        }
     </style>
 </head>
 <body>
@@ -82,14 +87,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js" type="text/javascript"></script>
 <script src="{{ asset('js/app.js') }}"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
 <script>
     $(document).ready(function () {
         $('#logout-button').click(function (e) {
             e.preventDefault();
             $('#logout-form').submit();
         });
+
         $('.toast').toast();
-        $('.datetime-picker').datetimepicker();
+
+        $('.tempus-dominus-datetimepicker').datetimepicker({
+            //format: 'YYYY/MM/DD',
+        });
+
+        $('.tempus-dominus-datepicker').datetimepicker({
+            format: 'YYYY/MM/DD',
+        });
+
         $('.form-control-chosen').chosen();
     })
 </script>

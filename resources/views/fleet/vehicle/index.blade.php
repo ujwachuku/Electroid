@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <div class="card shadow-sm">
                 <div class="card-header">
                     <div class="float-left mt-2 h4">Vehicles</div>
@@ -17,8 +17,8 @@
                             <thead>
                             <tr>
                                 <th class="text-right" width="6em">&nbsp;</th>
-                                <th>Description</th>
-                                <th>Type</th>
+                                <th>Fleet Nr</th>
+                                <th>Reg. Nr</th>
                                 <th>Model</th>
                                 <th>&nbsp;</th>
                             </tr>
@@ -30,17 +30,13 @@
                                         <i class="fas fa-car"></i>
                                     </td>
                                     <td class="align-middle">
-                                        <div><a href="{{ route('fleet.vehicle.show', $vehicle) }}">{{ $vehicle->fleet_nr }}</a></div>
-                                        <small>{{ $vehicle->reg_nr }}</small>
+                                        <a href="{{ route('fleet.vehicle.show', $vehicle) }}">{{ $vehicle->fleet_nr }}</a>
                                     </td>
-                                    <td class="align-middle">{{ $vehicle->type->name }}</td>
-                                    <td class="align-middle">
-                                        <div><small>{{ $vehicle->model->make->name }}</small></div>
-                                        <div>{{ $vehicle->model->name }}</div>
-                                    </td>
+                                    <td class="align-middle">{{ $vehicle->reg_nr }}</td>
+                                    <td class="align-middle">{{ $vehicle->model->name }}</td>
                                     <td class="align-middle text-right">
-                                        <a href="{{ route('fleet.vehicle.edit', $vehicle) }}">Edit</a> |
-                                        <a href="{{ route('fleet.vehicle.delete', $vehicle) }}">Delete</a>
+                                        <a href="{{ route('fleet.vehicle.edit', $vehicle) }}" class="p-1"><i class="fas fa-pen"></i></a>
+                                        <a href="{{ route('fleet.vehicle.delete', $vehicle) }}" class="p-1"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

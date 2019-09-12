@@ -29,19 +29,17 @@ class VehicleIncidentController extends Controller
 
     public function index()
     {
-        $incidents = $this->repository->paginate();
+        $incidents = VehicleIncident::latest()->paginate();
         return view('incident.index', compact('incidents'));
     }
 
     public function create(VehicleIncident $incident)
     {
-        $data = [
+        return view('incident.create', [
             'incident' => $incident,
             'areas' => VehicleIncidentArea::orderBy('name')->pluck('name', 'id'),
             'vehicles' => Vehicle::orderBy('fleet_nr')->pluck('fleet_nr', 'id')
-        ];
-
-        return view('incident.create', $data);
+        ]);
     }
 
     public function store(StoreVehicleIncidentRequest $request, VehicleIncident $incident)
@@ -57,7 +55,11 @@ class VehicleIncidentController extends Controller
 
     public function edit(VehicleIncident $incident)
     {
-        return view('incident.edit', compact('incident'));
+        return view('incident.edit', [
+            'incident' => $incident,
+            'areas' => VehicleIncidentArea::orderBy('name')->pluck('name', 'id'),
+            'vehicles' => Vehicle::orderBy('fleet_nr')->pluck('fleet_nr', 'id')
+        ]);
     }
 
     public function update(StoreVehicleIncidentRequest $request, VehicleIncident $incident)
@@ -76,8 +78,11 @@ class VehicleIncidentController extends Controller
 
     public function clone(VehicleIncident $incident)
     {
-        $clone = $this->repository->clone($incident);
-        return view('incident.create', ['incident' => $clone]);
+        return view('incident.create', [
+            'incident' => $this->repository->clone($incident),
+            'areas' => VehicleIncidentArea::orderBy('name')->pluck('name', 'id'),
+            'vehicles' => Vehicle::orderBy('fleet_nr')->pluck('fleet_nr', 'id')
+        ]);
     }
 
     public function close(VehicleIncident $incident)
@@ -94,8 +99,6 @@ class VehicleIncidentController extends Controller
 
     public function report()
     {
-        //dd(VehicleIncidentType::orderBy('name')->pluck('name', 'id'));
-
         return view('incident.report', [
             'layouts' => collect(['Summary', 'Detailed', 'Job Card']),
             'output' => collect(['PDF', 'CSV']),

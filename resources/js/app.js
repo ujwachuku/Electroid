@@ -8,8 +8,6 @@ require('./bootstrap');
 
 require('chart.js');
 
-require('../vendor/datetime-picker/build/js/bootstrap-datetimepicker.min');
-
 require('chosen-js');
 
 window.Vue = require('vue');

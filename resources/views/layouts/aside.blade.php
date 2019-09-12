@@ -8,15 +8,14 @@
         <a href="{{ route('fleet.vehicle.index') }}" class="list-group-item list-group-item-action border-0">Vehicles</a>
         <a href="{{ route('fleet.type.index') }}" class="list-group-item list-group-item-action border-0">Types</a>
         <a href="{{ route('fleet.make.index') }}" class="list-group-item list-group-item-action border-0">Makes</a>
-        <a href="{{ route('fleet.model.index') }}"
-           class="list-group-item list-group-item-action border-0">Models</a>
+        <a href="{{ route('fleet.model.index') }}" class="list-group-item list-group-item-action border-0">Models</a>
+        <a href="{{ route('service.team.index') }}" class="list-group-item list-group-item-action border-0">Teams</a>
+        <a href="{{ route('service.bay.index') }}" class="list-group-item list-group-item-action border-0">Bays</a>
 
         <span class="mt-4 text-gray font-weight-bold px-2">Setup</span>
         <a href="{{ route('user.index') }}" class="list-group-item list-group-item-action border-0">Users</a>
-        <a href="{{ route('user.role.index') }}" class="list-group-item list-group-item-action border-0">Roles</a>
+        <a href="{{ route('user.role.index') }}" class="list-group-item list-group-item-action border-0">User Roles</a>
         <a href="{{ route('incident.type.index') }}" class="list-group-item list-group-item-action border-0">Incident Types</a>
         <a href="{{ route('incident.area.index') }}" class="list-group-item list-group-item-action border-0">Incident Areas</a>
-        <a href="{{ route('service.team.index') }}" class="list-group-item list-group-item-action border-0">Teams</a>
-        <a href="{{ route('service.bay.index') }}" class="list-group-item list-group-item-action border-0">Bays</a>
     </nav>
 </aside>

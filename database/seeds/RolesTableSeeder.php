@@ -16,6 +16,6 @@ class RolesTableSeeder extends Seeder
         $role->name = "Developer";
         $role->save();
 
-        factory(Role::class, 10)->create();
+        //factory(Role::class, 10)->create();
     }
 }

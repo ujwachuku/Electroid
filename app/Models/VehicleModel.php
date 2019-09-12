@@ -9,6 +9,8 @@ class VehicleModel extends Model
 {
     use SoftDeletes;
 
+    protected $fillable = ['name', 'make_id'];
+
     public function make()
     {
         return $this->belongsTo('App\VehicleMake', 'make_id');

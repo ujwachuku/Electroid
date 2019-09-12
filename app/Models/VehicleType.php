@@ -9,6 +9,8 @@ class VehicleType extends Model
 {
     use SoftDeletes;
 
+    protected $fillable = ['name'];
+
     public function vehicles()
     {
         return $this->hasMany('App\Vehicle', 'type_id');

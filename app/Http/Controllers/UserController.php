@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserRequest;
 use App\Repositories\UserRepository;
 use App\User;
+use http\Env\Request;
 
 class UserController extends Controller
 {
@@ -53,5 +54,11 @@ class UserController extends Controller
     {
         $this->repository->delete($user);
         return redirect()->route('user.index')->with('success', 'The user was deleted successfully');
+    }
+
+    public function reset(User $user)
+    {
+        $this->repository->resetPassword($user);
+        return redirect()->route('user.index')->with('success', 'A password reset link was sent to the user\'s email address.');
     }
 }

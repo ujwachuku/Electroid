@@ -35,13 +35,13 @@
                                 @endif
                             </div>
                             <div class="col-md-3 py-2 text-right">
-                                <a href="{{ route('incident.edit', $incident) }}">Edit</a> |
                                 @if($incident->isOpen())
-                                    <a href="{{ route('incident.close', $incident) }}">Close</a> |
+                                <a href="{{ route('incident.edit', $incident) }}" class="p-1"><i class="fas fa-pen"></i></a>
+                                <a href="{{ route('incident.close', $incident) }}" class="p-1"><i class="fas fa-lock"></i></a>
                                 @else
-                                    <a href="{{ route('incident.reopen', $incident) }}">Open</a> |
+                                    <a href="{{ route('incident.reopen', $incident) }}" class="p-1"><i class="fas fa-lock-open"></i></a>
                                 @endif
-                                <a href="{{ route('incident.delete', $incident) }}">Delete</a>
+                                <a href="{{ route('incident.delete', $incident) }}" class="p-1"><i class="fas fa-trash-alt"></i></a>
                             </div>
                         </div>
                     @endforeach

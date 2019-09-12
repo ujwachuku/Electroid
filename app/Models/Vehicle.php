@@ -23,4 +23,9 @@ class Vehicle extends Model
     {
         return $this->belongsTo('App\VehicleModel', 'model_id');
     }
+
+    public function incidents()
+    {
+        return $this->hasMany('App\VehicleIncident', 'vehicle_id');
+    }
 }
