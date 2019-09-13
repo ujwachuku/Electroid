@@ -12,15 +12,3 @@
             value="{{ old('email', $user->email) }}"
             error="{{ $errors->first('email') }}">
 </form-input>
-<form-password name="password"
-            title="Password"
-            placeholder="Password"
-            value="{{ old('password', 'hiddensecret') }}"
-            error="{{ $errors->first('password') }}">
-</form-password>
-<form-password name="password_confirmation"
-            title="Confirm Password"
-            placeholder="Password"
-            value="{{ old('password_confirmation', 'hiddensecret') }}"
-            error="{{ $errors->first('password_confirmation') }}">
-</form-password>

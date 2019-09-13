@@ -26,8 +26,7 @@ class StoreUserRequest extends FormRequest
         return [
             'name' => 'required|min:5|max:50|unique:users,' . $this->id,
             'email' => 'required|email|unique:users,' . $this->id,
-            'role_id' => 'required|integer',
-            'password' => 'required|min:8|max:50|confirmed',
+            'role_id' => 'required|integer'
         ];
     }
 }

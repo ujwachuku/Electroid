@@ -22,9 +22,12 @@ class UserRepository extends BaseRepository
     {
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make(Str::random());
+        if($user->password === null)
+        {
+            $user->password = Hash::make(Str::random());
+        }
         $user->save();
-        $user->roles()->detach();
+        $user->roles()->detach(); // detach all previous roles
         $user->roles()->attach($request->role_id);
     }
 

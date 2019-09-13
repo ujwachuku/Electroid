@@ -11,15 +11,15 @@
 |
 */
 
-Auth::routes(['register' => false]);
+Auth::routes(['register' => false, 'verify' => true]);
 
-Route::middleware('auth')->group(function(){
+Route::middleware('auth', 'verified')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
 
     Route::get('/home', 'HomeController@index')->name('home');
 
     // roles
-    Route::prefix('user')->name('user.')->group(function(){
+    Route::prefix('user')->name('user.')->group(function () {
         Route::resource('role', 'RoleController');
         Route::get('role/{role}/delete', 'RoleController@delete')->name('role.delete');
     });
@@ -76,4 +76,6 @@ Route::middleware('auth')->group(function(){
     Route::get('incident/{incident}/clone', 'VehicleIncidentController@clone')->name('incident.clone');
     Route::get('incident/{incident}/close', 'VehicleIncidentController@close')->name('incident.close');
     Route::get('incident/{incident}/reopen', 'VehicleIncidentController@reopen')->name('incident.reopen');
+
+    Route::get('setup', 'SystemSetupController@index')->name('setup.index');
 });

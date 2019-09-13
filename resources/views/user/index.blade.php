@@ -20,13 +20,14 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
+                                <th class="text-center">Status</th>
                                 <th>&nbsp;</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($users as $user)
                                 <tr>
-                                    <td class="text-right">
+                                    <td class="text-right align-middle">
                                         <i class="fas fa-user"></i>
                                     </td>
                                     <td class="align-middle">
@@ -34,6 +35,13 @@
                                     </td>
                                     <td class="align-middle">{{ $user->email }}</td>
                                     <td class="align-middle">{{ $user->role()->name }}</td>
+                                    <td class="align-middle">
+                                        @if($user->hasVerifiedEmail())
+                                            <div class="bg-success text-white p-2 text-center">Verified</div>
+                                        @else
+                                            <div class="bg-danger text-white p-2 text-center">Unverified</div>
+                                        @endif
+                                    </td>
                                     <td class="align-middle text-right">
                                         <a href="{{ route('user.edit', $user) }}">Edit</a> |
                                         <a href="{{ route('user.delete', $user) }}">Delete</a>
