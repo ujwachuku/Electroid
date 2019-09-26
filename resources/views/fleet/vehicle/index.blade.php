@@ -19,6 +19,7 @@
                                 <th class="text-right" width="6em">&nbsp;</th>
                                 <th>Fleet Nr</th>
                                 <th>Reg. Nr</th>
+                                <th>Make</th>
                                 <th>Model</th>
                                 <th>&nbsp;</th>
                             </tr>
@@ -33,6 +34,7 @@
                                         <a href="{{ route('fleet.vehicle.show', $vehicle) }}">{{ $vehicle->fleet_nr }}</a>
                                     </td>
                                     <td class="align-middle">{{ $vehicle->reg_nr }}</td>
+                                    <td class="align-middle">{{ $vehicle->model->make->name }}</td>
                                     <td class="align-middle">{{ $vehicle->model->name }}</td>
                                     <td class="align-middle text-right">
                                         <a href="{{ route('fleet.vehicle.edit', $vehicle) }}" class="p-1"><i class="fas fa-pen"></i></a>

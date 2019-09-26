@@ -18,7 +18,7 @@
                             <tr>
                                 <th class="text-right" width="6em">&nbsp;</th>
                                 <th>Title</th>
-                                <th class="text-right" width="5em">Users</th>
+                                <th class="text-center" width="5em">Users</th>
                                 <th>&nbsp;</th>
                             </tr>
                             </thead>
@@ -31,7 +31,7 @@
                                     <td class="align-middle">
                                         <a href="{{ route('user.role.show', $role) }}">{{ $role->name }}</a>
                                     </td>
-                                    <td class="align-middle text-right">{{ $role->users->count() }}</td>
+                                    <td class="align-middle text-center">{{ $role->users->count() }}</td>
                                     <td class="align-middle text-right">
                                         <a href="{{ route('user.role.edit', $role) }}">Edit</a> |
                                         <a href="{{ route('user.role.delete', $role) }}">Delete</a>

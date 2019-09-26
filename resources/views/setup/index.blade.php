@@ -6,7 +6,7 @@
             <span class="card-subtitle text-secondary">Setup users, roles and permissions</span>
             <ul class="list-group list-group-flush pt-3">
                 <a href="{{ route('user.index') }}" class="list-group-item list-group-item-action"><i class="fas fa-users"></i> Users</a>
-                <a href="{{ route('user.index') }}" class="list-group-item list-group-item-action"><i class="fas fa-user-ninja"></i> Roles</a>
+                <a href="{{ route('user.role.index') }}" class="list-group-item list-group-item-action"><i class="fas fa-user-ninja"></i> Roles</a>
             </ul>
         </div>
 

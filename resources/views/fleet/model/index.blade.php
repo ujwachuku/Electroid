@@ -18,7 +18,7 @@
                             <tr>
                                 <th class="text-right" width="6em">&nbsp;</th>
                                 <th>Title</th>
-                                <th class="text-right" width="5em">Vehicles</th>
+                                <th class="text-center" width="5em">Vehicles</th>
                                 <th>&nbsp;</th>
                             </tr>
                             </thead>
@@ -31,7 +31,7 @@
                                     <td class="align-middle">
                                         <a href="{{ route('fleet.model.show', $model) }}">{{ $model->name }}</a>
                                     </td>
-                                    <td class="align-middle text-right">{{ $model->vehicles->count() }}</td>
+                                    <td class="align-middle text-center">{{ $model->vehicles->count() }}</td>
                                     <td class="align-middle text-right">
                                         <a href="{{ route('fleet.model.edit', $model) }}">Edit</a> |
                                         <a href="{{ route('fleet.model.delete', $model) }}">Delete</a>

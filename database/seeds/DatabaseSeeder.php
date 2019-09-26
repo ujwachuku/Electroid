@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Artisan;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,5 +23,7 @@ class DatabaseSeeder extends Seeder
         //$this->call(ServiceBaysTableSeeder::class);
         //$this->call(VehicleIncidentTypesTableSeeder::class);
         //$this->call(VehicleIncidentsTableSeeder::class);
+
+        Artisan::call('fleet:import');
     }
 }

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="database" uuid="1928d6f1-75a8-497b-9342-c353c5e51920">
+    <data-source source="LOCAL" name="database" uuid="7e47bdf3-ce82-4191-8249-da33b7213e4d">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\cor\Projects\Interstate\lbs_ims\database\database.sqlite</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\User\Documents\Projects\Interstate\proj-0175\database\database.sqlite</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>
