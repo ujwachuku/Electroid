@@ -24,6 +24,6 @@ class DatabaseSeeder extends Seeder
         //$this->call(VehicleIncidentTypesTableSeeder::class);
         //$this->call(VehicleIncidentsTableSeeder::class);
 
-        Artisan::call('fleet:import');
+        //Artisan::call('fleet:import');
     }
 }
