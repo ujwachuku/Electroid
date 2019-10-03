@@ -6,6 +6,7 @@ use App\Http\Requests\StoreUserRequest;
 use App\Repositories\UserRepository;
 use App\User;
 use http\Env\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -13,7 +14,7 @@ class UserController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['auth', 'admin']);
+        //$this->middleware(['auth', 'admin']);
         $this->repository = new UserRepository();
     }
 
@@ -60,5 +61,29 @@ class UserController extends Controller
     {
         $this->repository->resetPassword($user);
         return redirect()->route('user.index')->with('success', 'A password reset link was sent to the user\'s email address.');
+    }
+
+    public function impersonate(User $user)
+    {
+        // Guard against administrator impersonate
+        if(! $user->isAdmin())
+        {
+            Auth::user()->setImpersonating($user->id);
+        }
+        else
+        {
+            //flash()->error('Impersonate disabled for this user.');
+        }
+
+        return redirect()->route('home');
+    }
+
+    public function stopImpersonate()
+    {
+        Auth::user()->stopImpersonating();
+
+        //flash()->success('Welcome back!');
+
+        return redirect()->route('home');
     }
 }

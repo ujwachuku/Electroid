@@ -16,6 +16,9 @@
                     </div>
                     <div class="card-footer text-center">
                         <a href="{{ route('user.edit', $user) }}" class="btn btn-primary">Edit</a>
+                        @if(Auth::user()->isAdmin() && ! $user->isAdmin() && ! Auth::user()->isImpersonating() )
+                        <a href="{{ route('user.impersonate', $user) }}" class="btn btn-warning">Impersonate</a>
+                        @endif
                         <form-delete href="{{ route('user.delete', $user) }}"></form-delete>
                         <a href="{{ route('user.index') }}" class="btn btn-secondary">Cancel</a>
                     </div>

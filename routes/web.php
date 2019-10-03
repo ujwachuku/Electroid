@@ -12,22 +12,25 @@
 */
 
 Auth::routes(['register' => false, 'verify' => true]);
+Route::get('user/stop', 'UserController@stopImpersonate');
 
-Route::middleware('auth', 'verified')->group(function () {
+Route::middleware('auth', 'verified', 'impersonate')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
-
     Route::get('/home', 'HomeController@index')->name('home');
 
-    // roles
-    Route::prefix('user')->name('user.')->group(function () {
-        Route::resource('role', 'RoleController');
-        Route::get('role/{role}/delete', 'RoleController@delete')->name('role.delete');
-    });
+    Route::middleware('admin')->group(function (){
+        // roles
+        Route::prefix('user')->name('user.')->group(function () {
+            Route::resource('role', 'RoleController');
+            Route::get('role/{role}/delete', 'RoleController@delete')->name('role.delete');
+        });
 
-    // users
-    Route::resource('user', 'UserController');
-    Route::get('user/{user}/delete', 'UserController@delete')->name('user.delete');
-    Route::get('user/{user}/reset', 'UserController@reset')->name('user.reset');
+        // users
+        Route::resource('user', 'UserController');
+        Route::get('user/{user}/delete', 'UserController@delete')->name('user.delete');
+        Route::get('user/{user}/reset', 'UserController@reset')->name('user.reset');
+        Route::get('user/{user}/impersonate', 'UserController@impersonate')->name('user.impersonate');
+    });
 
     Route::prefix('fleet')->name('fleet.')->group(function () {
         // types

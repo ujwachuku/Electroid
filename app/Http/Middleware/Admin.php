@@ -9,7 +9,7 @@ class Admin
     public function handle($request, Closure $next)
     {
         if (!$request->user()->isAdmin()) {
-            return abort(403);
+            return redirect()->back();
         }
         return $next($request);
     }
